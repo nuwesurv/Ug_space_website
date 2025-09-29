@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: break-word;
+  color: var(--main-text-color);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+}
+
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--theme-color);
+  border-radius: 0.4rem;
+}
+
+:root {
+  --theme-color: #44c32e;
+  --main-text-color: #192f42;
+  --faint-text-color: #4c5767;
+  --background-color1: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1))   !important;
+  --button-background-color: #2e7a56;
+  --button-background-clicked: #3da675;
+}
+
