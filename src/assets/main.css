@@ -28,7 +28,7 @@ html::-webkit-scrollbar-thumb {
 
 :root {
   --theme-color: #44c32e;
-  --main-text-color: #192f42;
+  --main-text-color: #4c4c4c;
   --faint-text-color: #4c5767;
   --background-color1: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1))   !important;
   --button-background-color: #2e7a56;

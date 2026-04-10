@@ -5,7 +5,7 @@ import image1 from '@/assets/app_image1.jpg'
 import image2 from '@/assets/app_image2.jpg'
 import image3 from '@/assets/app_image3.jpg'
 import image4 from '@/assets/app_image4.jpg'
-const images = [image1, image2, image3, image4]
+const images = [image1, image2, image4]
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -21,7 +21,7 @@ import 'swiper/css/effect-coverflow'
     <div class="page-contents">
       <div class="text-wrapper">
         <h1>Take Ug space anywhere</h1>
-        <p>Quickly access and share property data no matter where you roam. Get the app now!</p>
+        <p>Quickly access and share property data no matter where you are. Get the <strong style="color: var(--theme-color);">App</strong> now!</p>
       </div>
 
       <AppdownloadComponent />
@@ -62,7 +62,7 @@ import 'swiper/css/effect-coverflow'
 <style scoped>
 /* === Page layout === */
 .page {
-  padding-top: 12dvh;
+  padding-top: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,28 +73,25 @@ import 'swiper/css/effect-coverflow'
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.5rem;
-  padding: 10dvh 1rem;
+  justify-content: center;
+  gap: 5.5rem;
   width: 100%;
+  /* border: 1px solid red; */
 }
 
 /* === Text wrapper === */
 .text-wrapper {
-  max-width: 800px;      /* limit text width */
   text-align: center;
   word-wrap: break-word;
 }
 
 .text-wrapper h1 {
-  font-size: clamp(2rem, 6vw, 6rem);  /* responsive */
-  line-height: 1.2;
-  margin: 0;
+  color: var(--theme-color);
 }
 
-.text-wrapper p {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+p {
   margin-top: 1rem;
-  line-height: 1.5;
+  color: var(--main-text-color);
 }
 
 /* === Swiper Styling === */
@@ -141,7 +138,7 @@ import 'swiper/css/effect-coverflow'
 }
 
 /* 📱 Mobile */
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .page {
     padding-top: 10dvh;
   }

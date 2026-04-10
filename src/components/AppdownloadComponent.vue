@@ -15,20 +15,19 @@
 .button-grouper {
   /* border: 1px solid red; */
   /* width: 400px; */
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .button {
-  width: 200px;
-  height: 5dvh;
+  width: 8rem;
+  padding: 0.6rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 2.2rem;
   background-color: var(--theme-color);
   /* background-color: var(--button-background-color); */
   /* border: 1px solid green; */
@@ -42,12 +41,12 @@
 
 .button p {
   font-size: 1.2rem;
-  color: white;
+  color: aliceblue;
   font-weight: 500;
 }
 
 /* 📱 Responsive: On mobile, make buttons full-width */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .button-grouper {
     width: 100%;
     gap: 0.8rem;

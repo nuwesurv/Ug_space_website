@@ -6,19 +6,16 @@ import app_image1 from '@/assets/app_image2.jpg'
 
 <template>
   <div class="page">
-    <div class="contacts">
+    <div class="page-grouper">
       <h3>Contact Information</h3>
-      <p>Location: Kampala, Ntinda opposite Capital Shoppers</p>
-      <p>Business Hours: 8AM to 5PM EAT</p>
-      <p>Email: ugspace@gmail.com</p>
-    </div>
-    <div class="footer-contents">
-      <h3>Download the Mobile App</h3>
-      <AppdownloadComponent />
-      <div class="footer-links">
-        <p>Services</p>
-        <p>About us</p>
-        <p>Contact us</p>
+      <div class="contacts">
+        <p>Location: Kampala, Ntinda opposite Capital Shoppers</p>
+        <p>Business Hours: 8AM to 5PM EAT</p>
+        <p>Email: ugspace@gmail.com</p>
+      </div>
+      <div class="footer-contents">
+        <h3>Download the Mobile App</h3>
+        <AppdownloadComponent />
       </div>
     </div>
   </div>
@@ -27,21 +24,31 @@ import app_image1 from '@/assets/app_image2.jpg'
 <style scoped>
 /* Page 1 begins here */
 .page {
-  /* height: 100dvh; */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3rem;
   flex-wrap: wrap;
-  padding: 10dvh 5rem;
+  padding: 6rem 0rem;
   background-image: linear-gradient(to bottom, rgba(30, 36, 41, 1), rgba(1, 79, 54, 1)) !important;
-  /* border: 3px solid red; */
+  /* border: 1px solid red; */
+}
+
+.page-grouper {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 1.5rem;
+  /* border: 2px solid greenyellow; */
 }
 
 .page p,
 .page h3,
 .page h2 {
-  color: white;
+  color: aliceblue;
 }
 
 .contacts {
@@ -50,29 +57,28 @@ import app_image1 from '@/assets/app_image2.jpg'
   align-items: start;
   justify-content: center;
   gap: 1.5rem;
-  /* flex: 1; */
-  width: 50%;
-  height: 70dvh;
-  object-fit: cover;
+  width: 100%;
+  margin-left: 1rem;
   /* border: 2px solid greenyellow; */
 }
 
 h3 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 p {
-  font-size: 1.4rem;
+  color: var(--main-text-color);;
+  font-size: 1rem;
   font-weight: 500;
   font-family: Roboto, sans-serif;
 }
 
 .footer-contents {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
+  margin-top: 1rem;
   justify-content: center;
   gap: 2rem;
   /* border: 2px solid greenyellow; */
@@ -85,18 +91,18 @@ p {
 }
 
 .footer-links p {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 /* 📱 Responsive: On mobile, make buttons full-width */
-@media (max-width: 768px) {
+@media (min-width: 800px) {
   .page {
     padding: 10dvh 1.2rem;
     /* border: 3px solid red; */
     /* gap: 2rem; */
     gap: 3rem;
   }
-  
+
   .contacts {
     display: flex;
     flex-direction: column;
