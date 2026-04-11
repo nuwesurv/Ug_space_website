@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar.vue'
 import Page1Component from '@/components/Page1Component.vue'
 import Page2Component from '@/components/Page2Component.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import Page3Component from '@/components/Page3Component.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
   <body>
     <Page1Component />
     <Page2Component />
+    <Page3Component/>
     <FooterComponent />
   </body>
 </template>

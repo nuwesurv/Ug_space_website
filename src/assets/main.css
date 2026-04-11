@@ -19,7 +19,7 @@
 }
 
 html::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0.4rem;
 }
 html::-webkit-scrollbar-thumb {
   background: var(--theme-color);
@@ -28,9 +28,11 @@ html::-webkit-scrollbar-thumb {
 
 :root {
   --theme-color: #44c32e;
+  --theme-color2: #237c07;
   --main-text-color: #4c4c4c;
   --faint-text-color: #4c5767;
   --background-color1: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1))   !important;
+  --background-color2: #fdfffb;
   --button-background-color: #2e7a56;
   --button-background-clicked: #3da675;
 }

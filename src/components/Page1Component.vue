@@ -34,6 +34,7 @@ import 'swiper/css/effect-coverflow'
           :centered-slides="true"
           :slides-per-view="'auto'"
           :slides-offset-before="0"
+          :initial-slide="1"
           :slides-offset-after="0"
           :coverflow-effect="{
             rotate: 45,

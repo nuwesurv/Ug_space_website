@@ -11,9 +11,9 @@ import app_image1 from '@/assets/app_image1.jpg'
         <img :src="app_image1" alt="" />
       </div>
       <div class="page-contents">
-        <h1>Look Up Parcel Data at a click</h1>
+        <h1>Value for money, Less Stress</h1>
         <p>
-          Quickly reference Land Area, addresses, property lines, and more for over 100K UG parcels.
+          Quickly identify affordable land using our engineered price heatmap for over 100K UG parcels.
         </p>
         <!-- <AppdownloadComponent /> -->
       </div>
@@ -29,7 +29,8 @@ import app_image1 from '@/assets/app_image1.jpg'
   align-items: center;
   justify-content: center;
   padding: 5rem 0rem;
-  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
+  background-color: #fdfffb;
+  /* background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1)); */
   /* border: 3px solid red; */
 }
 
