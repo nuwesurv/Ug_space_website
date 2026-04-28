@@ -1,7 +1,12 @@
 <script setup>
 import AppdownloadComponent from './AppdownloadComponent.vue'
+import { ref, onMounted } from 'vue'
+import logo from '@/assets/Ug_space_final_boss2.svg'
+import { useRouter } from 'vue-router'
 
-import app_image1 from '@/assets/app_image2.jpg'
+const router = useRouter()
+
+
 </script>
 
 <template>
@@ -9,9 +14,10 @@ import app_image1 from '@/assets/app_image2.jpg'
     <div class="page-grouper">
       <h3>Contact Information</h3>
       <div class="contacts">
-        <p>Location: Kampala, Ntinda opposite Capital Shoppers</p>
-        <p>Business Hours: 8AM to 5PM EAT</p>
-        <p>Email: ugspace@gmail.com</p>
+        <!-- <p>Location: Kampala, Ntinda opposite Capital Shoppers</p> -->
+        <p>Business Hours: 8am to 5pm EAT</p>
+        <p>Email: ugspaceestates@gmail.com</p>
+        <p @click="router.push('/contactus')" style="color: var(--theme-color); text-decoration: underline; text-underline-offset: 0.3rem;">Or you can reachout in App</p>
       </div>
       <div class="footer-contents">
         <h3>Download the Mobile App</h3>

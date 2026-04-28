@@ -1,19 +1,24 @@
 <script setup>
 import AppdownloadComponent from './AppdownloadComponent.vue'
 
-import image1 from '@/assets/app_image1.jpg'
-import image2 from '@/assets/app_image2.jpg'
-import image3 from '@/assets/app_image3.jpg'
-import image4 from '@/assets/app_image4.jpg'
-const images = [image1, image2, image4]
+import image1 from '@/assets/Ug_space1.jpg'
+import image2 from '@/assets/Ug_space2.jpg'
+import image3 from '@/assets/Ug_space3.jpg'
+import image4 from '@/assets/Ug_space4.jpg'
+import image6 from '@/assets/Ug_space6.jpg'
+import image7 from '@/assets/Ug_space7.jpg'
+const images = [image1, image6, image2, image4, image7]
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { A11y, EffectCoverflow } from 'swiper/modules'
+import { A11y, EffectCoverflow, Pagination } from 'swiper/modules'
 
 // Swiper styles
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+
+
 </script>
 
 <template>
@@ -28,14 +33,15 @@ import 'swiper/css/effect-coverflow'
 
       <div class="imagegrid">
         <Swiper
-          :modules="[EffectCoverflow, A11y]"
+          :modules="[EffectCoverflow, A11y, Pagination]"
           effect="coverflow"
           :grab-cursor="true"
           :centered-slides="true"
           :slides-per-view="'auto'"
           :slides-offset-before="0"
-          :initial-slide="1"
+          :initial-slide="2"
           :slides-offset-after="0"
+          :pagination="{ clickable: true }"
           :coverflow-effect="{
             rotate: 45,
             stretch: 0,
@@ -110,23 +116,27 @@ p {
 }
 
 .parcelCard {
-  background: white;
-  border-radius: 15px;
+  /* background: white; */
+  border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
-  width: clamp(220px, 60vw, 300px);
+  border: 0.5px solid rgb(240, 240, 240);
   max-width: 100%;
 }
 
 .card-img-div {
   width: 100%;
-  height: 100%;
+  display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .card-img-div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 1rem;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
 }
 
 .swiper-slide {
@@ -137,6 +147,25 @@ p {
 .swiper-slide-active {
   transform: scale(1.05);
 }
+
+:global(.swiper-pagination) {
+  margin-top: 1rem;
+  position: relative;
+}
+
+:global(.swiper-pagination-bullet) {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #bdbdbd;
+  opacity: 1;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: var(--theme-color);
+}
+
+
+
 
 /* 📱 Mobile */
 @media (max-width: 800px) {

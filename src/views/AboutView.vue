@@ -1,119 +1,102 @@
 <script setup>
+import FooterComponent from '@/components/FooterComponent.vue';
 import NavBar from '@/components/NavBar.vue';
 
 </script>
 
 <template>
   <div class="about-page">
-    <NavBar/>
+    <NavBar />
     <div class="page-grouper">
 
-        <!-- HERO -->
-        <section class="hero">
-      <h1>About UG Space</h1>
-      <p>
-        We are building a smarter, more transparent way to access land and property across Uganda.
-    </p>
-</section>
-
-    <!-- WHO WE ARE -->
-    <section class="section">
-      <h2>Who We Are</h2>
-      <p>
-        UG Space is a digital land platform focused on helping people find, verify, and transact
-        property with confidence. We connect buyers, sellers, and agents across Uganda through
-        a simple and reliable experience.
-      </p>
-    </section>
-
-    <!-- WHAT WE DO -->
-    <section class="section alt">
-      <h2>What We Do</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Land Discovery</h3>
-          <p>
-            Browse available land and properties across different regions with clear information
-            and visuals.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Verification</h3>
-          <p>
-            We aim to reduce fraud by providing structured data and tools that support due diligence.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Agency Network</h3>
-          <p>
-            Work with trusted agents and expand access to land opportunities across Uganda.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Digital Experience</h3>
-          <p>
-            A modern platform that simplifies how land is explored, evaluated, and acquired.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION -->
-    <section class="section">
-      <h2>Our Vision</h2>
-      <p>
-        To become the leading digital space for land and property transactions in Uganda,
-        making access to land simple, secure, and accessible for everyone.
-      </p>
-    </section>
-
-    <!-- MISSION -->
-    <section class="section alt">
-      <h2>Our Mission</h2>
-      <p>
-        To empower individuals and businesses with accurate property information,
-        trusted connections, and tools that make land transactions seamless.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <h2>Work With Us</h2>
+      <!-- HERO -->
+      <section class="hero">
+        <h1>About UG Space</h1>
         <p>
-        Whether you are buying, selling, or exploring opportunities, UG Space is here to help you move forward.
-      </p>
-      <button>Get Started</button>
-    </section>
+          We are building a smarter, more transparent way to access secure land across Uganda.
+        </p>
+      </section>
 
-  </div>
+      <!-- WHO WE ARE -->
+      <section class="section">
+        <h2>Who We Are</h2>
+        <p>
+          UG Space is a digital land platform focused on helping people find secure land and transact 
+          with confidence. We connect buyers and sellers across Uganda through the Ug space platform.
+        </p>
+      </section>
+
+      <!-- WHAT WE DO -->
+      <section class="section alt">
+        <h2>What We Do</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Land Sourcing</h3>
+            <p>
+              We actively search for land available for sale across different regions of Uganda.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Verification</h3>
+            <p>
+              We do our own due deligence to verify the validity of each Land title and on-ground checks to confirm ownership and occupancy.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Preparation</h3>
+            <p>
+              We work closely with our trusted land sellers to acertain services, developments and utilites available on or nearby the land.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Presentation</h3>
+            <p>
+              All verified plot details are compiled and uploaded onto the Ug space platform where you can access this information.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Site visit</h3>
+            <p>
+              We link you to land seller and escort you for sitevisit. We carryout an <strong style="color: var(--theme-color);">"at time of purchase"</strong> due deligence including but not limited to Land surveying and offer you a comprehensive Ug space purchase report.
+            </p>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- VISION
+      <section class="section">
+        <h2>Our Vision</h2>
+        <p>
+          To become the leading digital space for land and property transactions in Uganda,
+          making access to land simple, secure, and accessible for everyone.
+        </p>
+      </section> -->
     </div>
+    <FooterComponent/>
+  </div>
 </template>
 
 <style scoped>
-.about-page {
-  /* padding-top: 5rem; */
-  /* font-family: sans-serif; */
-  color: #222;
-}
-
-.page-grouper{
-    padding-top: 5rem;
-}
-
 /* HERO */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
-  background: #f5fff0;
+  padding: 5rem 1rem;
+  padding-top: 10rem;
+  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
+  /* background:  #fdfffb; */
+  /* border: 1px solid red; */
 }
 
 .hero h1 {
   font-size: 2.2rem;
   margin-bottom: 0.8rem;
-  color: var(--theme-color2);
+  color: var(--theme-color);
 }
 
 .hero p {
@@ -132,7 +115,7 @@ import NavBar from '@/components/NavBar.vue';
 .section h2 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
-  color: var(--theme-color2);
+  color: var(--theme-color);
 }
 
 .section p {
@@ -140,7 +123,8 @@ import NavBar from '@/components/NavBar.vue';
 }
 
 .alt {
-  background: #fafafa;
+  /* background: #fafafa; */
+  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
 }
 
 /* GRID */
@@ -154,11 +138,12 @@ import NavBar from '@/components/NavBar.vue';
   padding: 1.2rem;
   border-radius: 10px;
   background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .card h3 {
   margin-bottom: 0.5rem;
+  color: var(--theme-color);
 }
 
 /* CTA */
