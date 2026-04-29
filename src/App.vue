@@ -20,18 +20,24 @@ onMounted(()=>{
 </script>
 
 <template>
-  <RouterView />
-  <!-- <div class="overlay-div" v-if="isDeviceAllowed">
-    <p>Oops !! ...</p>
-    <p>Website is restricted to Mobile devices<br> Thank you.</p>
-  </div> -->
+  <div class="full-page">
+
+    <RouterView />
+    <div class="overlay-div" v-if="isDeviceAllowed">
+      <p>Oops !! ...</p>
+      <p>Website is restricted to Mobile devices<br> Thank you.</p>
+    </div>
+  </div>
 </template>
 
 
 <style scoped>
+.full-page{
+  position: relative;
+}
 .overlay-div {
   position: absolute;
-  height: 100dvh;
+  height: 100%;
   width: 100%;
   left: 0;
   top: 0;
