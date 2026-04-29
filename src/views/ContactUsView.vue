@@ -69,8 +69,8 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 85%; */
-  height: 80%;
+  width: 70%;
+  /* height: 80%; */
   /* border: 2px solid rgb(255, 71, 47); */
 }
 
