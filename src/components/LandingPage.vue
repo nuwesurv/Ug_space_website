@@ -26,36 +26,23 @@ import 'swiper/css/pagination'
     <div class="page-contents">
       <div class="text-wrapper">
         <h1>Take Ug space anywhere</h1>
-        <p>Quickly access and share property data no matter where you are. Get the <strong style="color: var(--theme-color);">App</strong> now!</p>
+        <p>Quickly access and share property data no matter where you are. Get the <strong
+            style="color: var(--theme-color);">App</strong> now!</p>
       </div>
 
       <AppdownloadComponent />
 
       <div class="imagegrid">
-        <Swiper
-          :modules="[EffectCoverflow, A11y, Pagination]"
-          effect="coverflow"
-          :grab-cursor="true"
-          :centered-slides="true"
-          :slides-per-view="'auto'"
-          :slides-offset-before="0"
-          :initial-slide="0"
-          :slides-offset-after="0"
-          :pagination="{ clickable: true }"
-          :coverflow-effect="{
+        <Swiper :modules="[EffectCoverflow, A11y, Pagination]" effect="coverflow" :grab-cursor="true"
+          :centered-slides="true" :slides-per-view="'auto'" :slides-offset-before="0" :initial-slide="0"
+          :slides-offset-after="0" :pagination="{ clickable: true }" :coverflow-effect="{
             rotate: 45,
             stretch: 0,
             depth: 100,
             modifier: 1,
             slideShadows: true
-          }"
-          class="parcelCardsWrapper"
-        >
-          <SwiperSlide
-            class="parcelCard"
-            v-for="(img, id) in images"
-            :key="id"
-          >
+          }" class="parcelCardsWrapper">
+          <SwiperSlide class="parcelCard" v-for="(img, id) in images" :key="id">
             <div class="card-img-div">
               <img :src="img" alt="" loading="lazy" />
             </div>
@@ -69,11 +56,12 @@ import 'swiper/css/pagination'
 <style scoped>
 /* === Page layout === */
 .page {
-  padding-top: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fdfffb;
+  /* border: 1px solid red; */
+  /* height: 100dvh; */
 }
 
 .page-contents {
@@ -83,6 +71,7 @@ import 'swiper/css/pagination'
   justify-content: center;
   gap: 5.5rem;
   width: 100%;
+  height: 100%;
   /* border: 1px solid red; */
 }
 
@@ -127,8 +116,8 @@ p {
 .card-img-div {
   width: 100%;
   display: flex;
-    flex-direction: column;
-    align-items: end;
+  flex-direction: column;
+  align-items: end;
 }
 
 .card-img-div img {

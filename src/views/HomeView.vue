@@ -136,7 +136,7 @@ p {
   justify-content: center;
   /* flex: 1; */
   width: 85%;
-  height: 70%;
+  /* height: 70%; */
   /* border: 2px solid rgb(255, 71, 47); */
 }
 
