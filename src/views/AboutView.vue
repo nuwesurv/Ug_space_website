@@ -61,7 +61,7 @@ import NavBar from '@/components/NavBar.vue';
           <div class="card">
             <h3>Site visit</h3>
             <p>
-              We link you to land seller and escort you for sitevisit. We carryout an <strong style="color: var(--theme-color);">"at time of purchase"</strong> due deligence including but not limited to Land surveying and offer you a comprehensive Ug space purchase report.
+              We link you to land seller and escort you for sitevisit. We carryout an <strong style="color: var(--theme-color);">"at time of purchase"</strong> due deligence including but not limited to Land surveying and offer you a comprehensive Ug space inspection report.
             </p>
           </div>
 
