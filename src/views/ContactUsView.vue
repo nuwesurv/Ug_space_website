@@ -1,6 +1,5 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import LandingPage from '@/components/LandingPage.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 
 import image5 from '@/assets/Ug_space5.webp'
@@ -10,10 +9,10 @@ import image5 from '@/assets/Ug_space5.webp'
   <NavBar />
 
   <body>
-    <!-- Section 4 of the Landing page -->
-    <div class="page2">
+    <!-- Section 4 of the Landing page-contact -->
+    <div class="page-contact2">
       <div class="fake-navbar"></div>
-      <div class="page-grouper">
+      <div class="page-contact-grouper">
         <div class="image-div">
           <img :src="image5" alt="" />
         </div>
@@ -33,9 +32,9 @@ body {
 }
 
 
-.page2 {
+.page-contact2 {
   width: 100%;
-  height: 90dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +47,7 @@ body {
   height: 5rem;
 }
 
-.page-grouper {
+.page-contact-grouper {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,4 +81,37 @@ h2 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
   /* box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgba(0, 0, 0, 0.209); */
 }
+
+
+
+
+@media (min-width: 800px) {
+  .page-contact-grouper {
+    display: flex;
+    /* flex-direction: row; */
+    height: 90dvh;
+    width: 60%;
+    gap: 2rem;
+  }
+
+  .image-div {
+    width: 40%;
+    aspect-ratio: 1/2;
+  }
+
+  .page-contact-contents {
+    width: 40%;
+    /* border: 1px solid red; */
+  }
+
+  h1{
+    font-size: 1.6rem;
+  }
+
+  p{
+    font-size: 1rem;
+  }
+}
+
+
 </style>

@@ -3,14 +3,8 @@ import NavBar from '@/components/NavBar.vue'
 import LandingPage from '@/components/LandingPage.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 
-import image1 from '@/assets/Ug_space1.webp'
-import image2 from '@/assets/Ug_space2.webp'
-import image3 from '@/assets/Ug_space3.webp'
-import image4 from '@/assets/Ug_space4.webp'
 import image5 from '@/assets/Ug_space5.webp'
 import image6 from '@/assets/Ug_space6.webp'
-import image7 from '@/assets/Ug_space7.webp'
-import image8 from '@/assets/Ug_space8.webp'
 import video1 from '@/assets/Ug_space_filter.mp4'
 </script>
 
@@ -22,20 +16,20 @@ import video1 from '@/assets/Ug_space_filter.mp4'
     <LandingPage />
 
     <!-- Section 2 of the Landing page -->
-     <div class="page2">
-    <div class="page-grouper">
-      <div class="image-div">
-        <img :src="image6" alt="" />
-      </div>
-      <div class="page-contents">
-        <h1>Look Up Parcel Info at a click</h1>
-        <p>
-          Quickly reference Land Area, addresses, property boundaries, and more for 100K+ UG parcels.
-        </p>
-        <!-- <AppdownloadComponent /> -->
+    <div class="page2">
+      <div class="page-grouper">
+        <div class="image-div">
+          <img :src="image6" alt="" />
+        </div>
+        <div class="page-contents">
+          <h1>Look Up Parcel Info at a click</h1>
+          <p>
+            Quickly reference Land Area, addresses, property boundaries, and more for 100K+ UG parcels.
+          </p>
+          <!-- <AppdownloadComponent /> -->
+        </div>
       </div>
     </div>
-  </div>
 
     <!-- Section 3 of the Landing page -->
     <div class="page">
@@ -44,13 +38,14 @@ import video1 from '@/assets/Ug_space_filter.mp4'
           <img :src="image8" alt="" />
         </div> -->
         <div class="image-div">
-            <video :src="video1" loop controls playsinline autoplay></video>
-          </div>
+          <video :src="video1" loop controls playsinline autoplay></video>
+        </div>
         <div class="page-contents">
           <h1>Find the Right Land</h1>
           <p>
             <!-- Quickly identify affordable land using our fast realtime filter search for 100K+ plots of Land. -->
-             Search thousands of verified plots in seconds. Compare prices, filter by your needs, and confidently choose land that <strong style="color: var(--theme-color);">fits your budget</strong>
+            Search thousands of verified plots in seconds. Compare prices, filter by your needs, and confidently choose
+            land that <strong style="color: var(--theme-color);">fits your budget</strong>
           </p>
           <!-- <AppdownloadComponent /> -->
         </div>
@@ -66,7 +61,9 @@ import video1 from '@/assets/Ug_space_filter.mp4'
         <div class="page-contents">
           <h1>Book Smarter. Visit Faster.</h1>
           <p>
-            Book a site visit in minutes and let our team handle the rest. We organize, confirm, and guide you every step of the way so you can focus on making the <strong style="color: var(--theme-color);">right land purchase decision</strong>.
+            Book a site visit in minutes and let our team handle the rest. We organize, confirm, and guide you every
+            step of the way so you can focus on making the <strong style="color: var(--theme-color);">right land
+              purchase decision</strong>.
           </p>
           <!-- <AppdownloadComponent /> -->
         </div>
@@ -74,8 +71,8 @@ import video1 from '@/assets/Ug_space_filter.mp4'
     </div>
 
 
-    <FooterComponent />
   </body>
+  <FooterComponent />
 </template>
 
 <style scoped>
@@ -84,7 +81,8 @@ body {
 }
 
 
-.page, .page2 {
+.page,
+.page2 {
   width: 100%;
   display: flex;
   align-items: center;
@@ -157,10 +155,37 @@ video {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
+  .page,
+  .page2 {
+    height: 80dvh;
+  }
+
+  .page-grouper {
+    display: flex;
+    flex-direction: row;
+    height: 80dvh;
+    width: 60%;
+    gap: 2rem;
+  }
+
+  .image-div {
+    width: 40%;
+    aspect-ratio: 1/2;
+  }
+
+  .page-contents {
+    width: 40%;
+    /* border: 1px solid red; */
+  }
+
+  h1{
+    font-size: 1.6rem;
+  }
+
+  p{
+    font-size: 1rem;
+  }
+
 }
-
-
-
-
 </style>

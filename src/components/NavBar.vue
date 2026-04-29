@@ -35,9 +35,10 @@ const goTo = (path) => {
     <div class="menu-card1">
       <div class="menu-grouper1">
         <div class="text-div1" @click="goTo('/')">Home</div>
-        <div class="text-div1">Services</div>
-        <div class="text-div1">About us</div>
-        <div class="text-div1">Contact us</div>
+        <!-- <div class="text-div1">Services</div> -->
+        <div class="text-div1" @click="goTo('/partners')">Our Partners</div>
+        <div class="text-div1" @click="goTo('/about')">About us </div>
+        <div class="text-div1" @click="goTo('/contactus')">Contact us</div>
       </div>
     </div>
 

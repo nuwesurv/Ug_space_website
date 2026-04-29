@@ -22,8 +22,8 @@ import 'swiper/css/pagination'
 </script>
 
 <template>
-  <div class="page">
-    <div class="page-contents">
+  <div class="page-landing">
+    <div class="page-landing-contents">
       <div class="text-wrapper">
         <h1>Take Ug space anywhere</h1>
         <p>Quickly access and share property data no matter where you are. Get the <strong
@@ -54,8 +54,9 @@ import 'swiper/css/pagination'
 </template>
 
 <style scoped>
-/* === Page layout === */
-.page {
+/* === Page-landing layout === */
+.page-landing {
+  padding-top: 10dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,14 +65,15 @@ import 'swiper/css/pagination'
   /* height: 100dvh; */
 }
 
-.page-contents {
+.page-landing-contents {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5.5rem;
   width: 100%;
   height: 100%;
+  gap: 1.5rem;
+  padding: 6dvh 1rem;
   /* border: 1px solid red; */
 }
 
@@ -83,9 +85,12 @@ import 'swiper/css/pagination'
 
 .text-wrapper h1 {
   color: var(--theme-color);
+  font-size: 2rem;
+    line-height: 2.5rem;
 }
 
 p {
+  font-size: 1.1rem;
   margin-top: 1rem;
   color: var(--main-text-color);
 }
@@ -105,11 +110,11 @@ p {
 }
 
 .parcelCard {
-  /* background: white; */
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   border: 0.5px solid rgb(240, 240, 240);
+  width: clamp(180px, 80vw, 240px);
   max-width: 100%;
 }
 
@@ -157,33 +162,12 @@ p {
 
 
 /* 📱 Mobile */
-@media (max-width: 800px) {
-  .page {
-    padding-top: 10dvh;
-  }
-
-  .page-contents {
-    gap: 1.5rem;
-    padding: 6dvh 1rem;
-  }
-
-  .text-wrapper h1 {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-
-  .text-wrapper p {
-    font-size: 1.1rem;
-  }
-
-  .parcelCard {
-    width: clamp(180px, 80vw, 240px);
-  }
+@media (min-width: 800px) {
+.page-landing { 
+  height: 130dvh;
 }
 
-/* === GLOBAL FIX FOR HORIZONTAL SCROLL === */
-:global(html),
-:global(body) {
-  overflow-x: hidden;
+
+
 }
 </style>

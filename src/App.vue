@@ -21,10 +21,10 @@ onMounted(()=>{
 
 <template>
   <RouterView />
-  <div class="overlay-div" v-if="isDeviceAllowed">
+  <!-- <div class="overlay-div" v-if="isDeviceAllowed">
     <p>Oops !! ...</p>
     <p>Website is restricted to Mobile devices<br> Thank you.</p>
-  </div>
+  </div> -->
 </template>
 
 

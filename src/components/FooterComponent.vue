@@ -10,8 +10,8 @@ const router = useRouter()
 </script>
 
 <template>
-  <div class="page">
-    <div class="page-grouper">
+  <div class="page-footer">
+    <div class="page-footer-grouper">
       <h3>Contact Information</h3>
       <div class="contacts">
         <!-- <p>Location: Kampala, Ntinda opposite Capital Shoppers</p> -->
@@ -28,8 +28,8 @@ const router = useRouter()
 </template>
 
 <style scoped>
-/* Page 1 begins here */
-.page {
+/* Page-footer 1 begins here */
+.page-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@ const router = useRouter()
   /* border: 1px solid red; */
 }
 
-.page-grouper {
+.page-footer-grouper {
   width: 85%;
   display: flex;
   flex-direction: column;
@@ -51,9 +51,9 @@ const router = useRouter()
   /* border: 2px solid greenyellow; */
 }
 
-.page p,
-.page h3,
-.page h2 {
+.page-footer p,
+.page-footer h3,
+.page-footer h2 {
   color: aliceblue;
 }
 
@@ -102,39 +102,12 @@ p {
 
 /* 📱 Responsive: On mobile, make buttons full-width */
 @media (min-width: 800px) {
-  .page {
-    padding: 10dvh 1.2rem;
-    /* border: 3px solid red; */
-    /* gap: 2rem; */
-    gap: 3rem;
+  .page-footer{
+    height: 50dvh;
+    padding: 0;
   }
-
-  .contacts {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 1.5rem;
-    /* flex: 1; */
-    width: 100%;
-    padding: 5dvh 0;
-    height: fit-content;
-    /* border: 1px solid red; */
-  }
-
-  h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    font-family: Roboto, sans-serif;
-  }
-
-  .footer-links p {
-    font-size: 1rem;
+  .page-footer-grouper{
+    flex-direction: row;
   }
 }
 </style>

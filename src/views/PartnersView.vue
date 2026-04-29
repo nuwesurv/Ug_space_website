@@ -15,16 +15,16 @@ const imagesInPartners = Object.values(modules)
 </script>
 
 <template>
-  <NavBar />
 
   <body>
+    <NavBar />
     <!-- Section 4 of the Landing page -->
     <div class="page2">
       <h2 class="heading">Our Partners</h2>
-      <div class="page-grouper" >
+      <div class="page-grouper">
         <!-- <div class="card" > -->
-          <div class="image-div" v-for="(image, index) in imagesInPartners" :key="index">
-            <img :src="image" alt="partner image" />
+        <div class="image-div" v-for="(image, index) in imagesInPartners" :key="index">
+          <img :src="image" alt="partner image" />
           <!-- </div> -->
           <p class="name"></p>
         </div>
@@ -40,10 +40,15 @@ const imagesInPartners = Object.values(modules)
 body {
   width: 100%;
   /* padding-top: 4rem; */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 
 .page2 {
+  /* min-height: 100dvh; */
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -58,23 +63,23 @@ body {
 .page-grouper {
   width: 85%;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 1.5rem;
   /* border: 2px solid blue; */
   /* height: 60dvh; */
 }
 
 
-.card{
+.card {
   height: 4rem;
   border: 1px solid red;
 }
 
-.heading{
+.heading {
   color: var(--theme-color);
-border-bottom: 0.5px solid var(--theme-color);
-width: 90%;
-text-align: center;
+  border-bottom: 0.5px solid var(--theme-color);
+  width: 90%;
+  text-align: center;
 }
 
 
@@ -91,8 +96,4 @@ img {
   object-fit: cover;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
 }
-
-
-
-
 </style>
