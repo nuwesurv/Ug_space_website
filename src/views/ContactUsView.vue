@@ -3,15 +3,7 @@ import NavBar from '@/components/NavBar.vue'
 import LandingPage from '@/components/LandingPage.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 
-import image1 from '@/assets/Ug_space1.jpg'
-import image2 from '@/assets/Ug_space2.jpg'
-import image3 from '@/assets/Ug_space3.jpg'
-import image4 from '@/assets/Ug_space4.jpg'
-import image5 from '@/assets/Ug_space5.jpg'
-import image6 from '@/assets/Ug_space6.jpg'
-import image7 from '@/assets/Ug_space7.jpg'
-import image8 from '@/assets/Ug_space8.jpg'
-import video1 from '@/assets/Ug_space_filter.mp4'
+import image5 from '@/assets/Ug_space5.webp'
 </script>
 
 <template>
@@ -20,11 +12,12 @@ import video1 from '@/assets/Ug_space_filter.mp4'
   <body>
     <!-- Section 4 of the Landing page -->
     <div class="page2">
+      <div class="fake-navbar"></div>
       <div class="page-grouper">
         <div class="image-div">
           <img :src="image5" alt="" />
         </div>
-          <h2>Reach out in App.</h2>
+        <h2>Reach out in App.</h2>
       </div>
     </div>
 
@@ -42,23 +35,29 @@ body {
 
 .page2 {
   width: 100%;
+  height: 90dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0rem;
-  padding-top: 8rem;
+  /* border: 1px solid red; */
   background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
 }
 
+.fake-navbar{
+  height: 5rem;
+}
+
 .page-grouper {
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
   /* border: 2px solid blue; */
-  height: 60dvh;
+  /* height: 60dvh; */
+  height: 90%;
 }
 
 
@@ -71,7 +70,7 @@ h2 {
   align-items: center;
   justify-content: center;
   /* width: 85%; */
-  height: 100%;
+  height: 80%;
   /* border: 2px solid rgb(255, 71, 47); */
 }
 
@@ -83,8 +82,4 @@ h2 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
   /* box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgba(0, 0, 0, 0.209); */
 }
-
-
-
-
 </style>

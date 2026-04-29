@@ -1,12 +1,12 @@
 <script setup>
 import AppdownloadComponent from './AppdownloadComponent.vue'
 
-import image1 from '@/assets/Ug_space1.jpg'
-import image2 from '@/assets/Ug_space2.jpg'
-import image3 from '@/assets/Ug_space3.jpg'
-import image4 from '@/assets/Ug_space4.jpg'
-import image6 from '@/assets/Ug_space6.jpg'
-import image7 from '@/assets/Ug_space7.jpg'
+import image1 from '@/assets/Ug_space1.webp'
+import image2 from '@/assets/Ug_space2.webp'
+import image3 from '@/assets/Ug_space3.webp'
+import image4 from '@/assets/Ug_space4.webp'
+import image6 from '@/assets/Ug_space6.webp'
+import image7 from '@/assets/Ug_space7.webp'
 const images = [image1, image6, image2, image4, image7]
 
 // Swiper imports

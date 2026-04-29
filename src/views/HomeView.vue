@@ -3,14 +3,14 @@ import NavBar from '@/components/NavBar.vue'
 import LandingPage from '@/components/LandingPage.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 
-import image1 from '@/assets/Ug_space1.jpg'
-import image2 from '@/assets/Ug_space2.jpg'
-import image3 from '@/assets/Ug_space3.jpg'
-import image4 from '@/assets/Ug_space4.jpg'
-import image5 from '@/assets/Ug_space5.jpg'
-import image6 from '@/assets/Ug_space6.jpg'
-import image7 from '@/assets/Ug_space7.jpg'
-import image8 from '@/assets/Ug_space8.jpg'
+import image1 from '@/assets/Ug_space1.webp'
+import image2 from '@/assets/Ug_space2.webp'
+import image3 from '@/assets/Ug_space3.webp'
+import image4 from '@/assets/Ug_space4.webp'
+import image5 from '@/assets/Ug_space5.webp'
+import image6 from '@/assets/Ug_space6.webp'
+import image7 from '@/assets/Ug_space7.webp'
+import image8 from '@/assets/Ug_space8.webp'
 import video1 from '@/assets/Ug_space_filter.mp4'
 </script>
 
@@ -44,7 +44,7 @@ import video1 from '@/assets/Ug_space_filter.mp4'
           <img :src="image8" alt="" />
         </div> -->
         <div class="image-div">
-            <video :src="video1" loop controls playsinline></video>
+            <video :src="video1" loop controls playsinline autoplay></video>
           </div>
         <div class="page-contents">
           <h1>Find the Right Land</h1>
