@@ -39,7 +39,7 @@ import 'swiper/css/pagination'
           :centered-slides="true"
           :slides-per-view="'auto'"
           :slides-offset-before="0"
-          :initial-slide="2"
+          :initial-slide="0"
           :slides-offset-after="0"
           :pagination="{ clickable: true }"
           :coverflow-effect="{
