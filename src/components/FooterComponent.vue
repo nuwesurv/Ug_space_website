@@ -40,7 +40,7 @@ onMounted(() => {
           <span>UG Space</span>
         </div>
         <p class="footer-tagline">
-          Uganda's trusted platform for discovering, verifying, and purchasing land.
+          Uganda's trusted platform for discovering and purchasing verified plots.
         </p>
         <AppdownloadComponent />
       </div>

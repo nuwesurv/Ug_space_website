@@ -96,7 +96,7 @@ onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
       <div class="about-hero-inner">
         <span class="section-tag">About UG Space</span>
         <h1>Building Uganda's Most Trusted Land Platform</h1>
-        <p>We are making land discovery, verification, and purchasing simple and transparent for every Ugandan.</p>
+        <p>We are making it simple and transparent for every Ugandan to discover and purchase verified plots.</p>
       </div>
     </section>
 
