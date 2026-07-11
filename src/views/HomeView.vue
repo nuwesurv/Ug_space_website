@@ -74,6 +74,16 @@ onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
     <!-- ── Hero ── -->
     <LandingPage />
 
+    <!-- ── App Download ── -->
+    <section class="app-section">
+      <div class="app-inner">
+        <span class="section-label light">Mobile App</span>
+        <h2>Take UG Space Everywhere.</h2>
+        <p>Browse land, get alerts on new plots, and book visits — all from your phone.</p>
+        <AppdownloadComponent />
+      </div>
+    </section>
+
     <!-- ── Feature 1: Parcel Info ── -->
     <section id="features" class="feature-section">
       <div class="feature-inner reverse">
@@ -166,15 +176,6 @@ onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
       </div>
     </section>
 
-    <!-- ── App Download ── -->
-    <section class="app-section">
-      <div class="app-inner">
-        <span class="section-label light">Mobile App</span>
-        <h2>Take UG Space Everywhere.</h2>
-        <p>Browse land, get alerts on new plots, and book visits — all from your phone.</p>
-        <AppdownloadComponent />
-      </div>
-    </section>
   </main>
 
   <FooterComponent />
