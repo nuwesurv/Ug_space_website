@@ -1,7 +1,10 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
-import { ref } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const copied = ref(false)
 const copyEmail = () => {
@@ -33,6 +36,33 @@ const channels = [
     link: null,
   },
 ]
+
+onMounted(() => {
+  // Hero entrance
+  gsap.from('.contact-hero-inner > *', {
+    y: 40,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.12,
+    ease: 'power3.out',
+    delay: 0.2,
+  })
+
+  // Channel cards — scale+fade so grid alignment stays intact
+  gsap.from('.channel-card', {
+    scale: 0.9,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.channels-inner',
+      start: 'top 82%',
+    },
+  })
+})
+
+onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
 </script>
 
 <template>

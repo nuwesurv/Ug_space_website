@@ -1,10 +1,33 @@
 <script setup>
+import { onMounted } from 'vue'
 import AppdownloadComponent from './AppdownloadComponent.vue'
 import logo from '@/assets/Ug_space_final_boss2.svg'
 import { useRouter } from 'vue-router'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const router = useRouter()
 const year = new Date().getFullYear()
+
+onMounted(() => {
+  gsap.from('.footer-brand > *', {
+    y: 30,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.footer', start: 'top 90%' },
+  })
+  gsap.from('.footer-col', {
+    y: 30,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.12,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.footer', start: 'top 90%' },
+  })
+})
 </script>
 
 <template>

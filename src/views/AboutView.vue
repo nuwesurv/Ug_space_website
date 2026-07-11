@@ -1,6 +1,10 @@
 <script setup>
+import { onMounted, onUnmounted } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const steps = [
   {
@@ -29,6 +33,58 @@ const steps = [
     body: 'We link you with the seller and escort you for a guided visit — including an on-site survey and a full UG Space inspection report.',
   },
 ]
+
+onMounted(() => {
+  // Hero entrance
+  gsap.from('.about-hero-inner > *', {
+    y: 40,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.12,
+    ease: 'power3.out',
+    delay: 0.2,
+  })
+
+  // Who we are — text and stat cards
+  gsap.from('.who-text > *', {
+    x: -12,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '.who-section', start: 'top 78%' },
+  })
+  gsap.from('.stat-card', {
+    scale: 0.88,
+    opacity: 0,
+    duration: 0.55,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.who-stats', start: 'top 82%' },
+  })
+
+  // Process header
+  gsap.from('.process-header > *', {
+    y: 30,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.process-header', start: 'top 82%' },
+  })
+
+  // Step cards — scale+fade so grid alignment is never disrupted
+  gsap.from('.step-card', {
+    scale: 0.9,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.08,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.steps-grid', start: 'top 82%' },
+  })
+})
+
+onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
 </script>
 
 <template>

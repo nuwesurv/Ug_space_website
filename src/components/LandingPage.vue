@@ -1,9 +1,11 @@
 <script setup>
+import { onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { A11y, EffectCoverflow, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
+import gsap from 'gsap'
 
 import image1 from '@/assets/Ug_space1.webp'
 import image2 from '@/assets/Ug_space2.webp'
@@ -11,6 +13,19 @@ import image4 from '@/assets/Ug_space4.webp'
 import image6 from '@/assets/Ug_space6.webp'
 import image7 from '@/assets/Ug_space7.webp'
 const images = [image1, image6, image2, image4, image7]
+
+onMounted(() => {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+  tl.from('.hero-text .badge',      { y: 24, opacity: 0, duration: 0.6 })
+    .from('.hero-heading',           { y: 40, opacity: 0, duration: 0.7 }, '-=0.3')
+    .from('.hero-sub',               { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
+    .from('.hero-actions .btn-primary, .hero-actions .btn-outline',
+                                     { y: 20, opacity: 0, duration: 0.5, stagger: 0.12 }, '-=0.3')
+    .from('.hero-trust .trust-item, .hero-trust .trust-divider',
+                                     { y: 16, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.2')
+    .from('.hero-carousel',          { x: 14, opacity: 0, duration: 0.9, ease: 'power2.out' }, '-=0.7')
+})
 </script>
 
 <template>

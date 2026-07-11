@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import logo from '@/assets/Ug_space_final_boss2.svg'
 import { useRouter, useRoute } from 'vue-router'
+import gsap from 'gsap'
 
 const router = useRouter()
 const route = useRoute()
@@ -13,6 +14,28 @@ const handleScroll = () => { scrolled.value = window.scrollY > 20 }
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   document.fonts.load('1em "Material Symbols Outlined"').then(() => { fontLoaded.value = true })
+
+  gsap.from('.navbar', {
+    y: -60,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power3.out',
+  })
+  gsap.from('.logo-div', {
+    x: -10,
+    opacity: 0,
+    duration: 0.6,
+    delay: 0.3,
+    ease: 'power2.out',
+  })
+  gsap.from('.nav-links li, .nav-cta', {
+    y: -12,
+    opacity: 0,
+    duration: 0.5,
+    delay: 0.4,
+    stagger: 0.08,
+    ease: 'power2.out',
+  })
 })
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 

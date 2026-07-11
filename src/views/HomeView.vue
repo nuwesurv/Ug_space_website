@@ -1,12 +1,66 @@
 <script setup>
+import { onMounted, onUnmounted } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import LandingPage from '@/components/LandingPage.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import AppdownloadComponent from '@/components/AppdownloadComponent.vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 import image5 from '@/assets/Ug_space5.webp'
 import image6 from '@/assets/Ug_space6.webp'
 import video1 from '@/assets/Ug_space_filter.mp4'
+
+onMounted(() => {
+  // Each feature section: media slides in from the outside, text from the other side
+  document.querySelectorAll('.feature-inner').forEach((section) => {
+    const media = section.querySelector('.feature-media')
+    const text  = section.querySelector('.feature-text')
+    const isReversed = section.classList.contains('reverse')
+
+    gsap.from(media, {
+      x: isReversed ? 16 : -16,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+    })
+
+    gsap.from(text.children, {
+      y: 36,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+    })
+  })
+
+  // App section
+  gsap.from('.app-inner > *', {
+    y: 40,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.12,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.app-section',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+  })
+})
+
+onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
 </script>
 
 <template>
