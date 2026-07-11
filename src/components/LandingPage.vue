@@ -6,6 +6,12 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import gsap from 'gsap'
+import { usePlotsStore } from '@/stores/plots'
+import { useAppStoreLink } from '@/composables/useAppStoreLink'
+
+const { appStoreLink } = useAppStoreLink()
+
+const plots = usePlotsStore()
 
 import image1 from '@/assets/Ug_space1.webp'
 import image2 from '@/assets/Ug_space2.webp'
@@ -15,6 +21,7 @@ import image7 from '@/assets/Ug_space7.webp'
 const images = [image1, image6, image2, image4, image7]
 
 onMounted(() => {
+  plots.fetchPlotCount()
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
   tl.from('.hero-text .badge',      { y: 24, opacity: 0, duration: 0.6 })
@@ -49,7 +56,7 @@ onMounted(() => {
 
         <div class="hero-actions">
           <a
-            href="https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp"
+            :href="appStoreLink"
             target="_blank"
             rel="noopener"
             class="btn-primary"
@@ -59,7 +66,7 @@ onMounted(() => {
 
         <div class="hero-trust">
           <div class="trust-item">
-            <strong>100K+</strong>
+            <strong>{{ plots.plotCount !== null ? plots.plotCount.toLocaleString() : '—' }}</strong>
             <span>Plots listed</span>
           </div>
           <div class="trust-divider"></div>

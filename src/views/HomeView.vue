@@ -6,13 +6,17 @@ import FooterComponent from '@/components/FooterComponent.vue'
 import AppdownloadComponent from '@/components/AppdownloadComponent.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePlotsStore } from '@/stores/plots'
 gsap.registerPlugin(ScrollTrigger)
+
+const plots = usePlotsStore()
 
 import image5 from '@/assets/Ug_space5.webp'
 import image6 from '@/assets/Ug_space6.webp'
 import video1 from '@/assets/Ug_space_filter.mp4'
 
 onMounted(() => {
+  plots.fetchPlotCount()
   // Each feature section: media slides in from the outside, text from the other side
   document.querySelectorAll('.feature-inner').forEach((section) => {
     const media = section.querySelector('.feature-media')
@@ -81,7 +85,7 @@ onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
           <h2>Every Plot Detail, Instantly.</h2>
           <p>
             Look up land area, boundaries, addresses, and ownership details for over
-            <strong>100,000 parcels</strong> across Uganda — all in one tap.
+            <strong>{{ plots.plotCount !== null ? plots.plotCount.toLocaleString() : '100,000+' }} parcels</strong> across Uganda — all in one tap.
           </p>
           <ul class="feature-list">
             <li>

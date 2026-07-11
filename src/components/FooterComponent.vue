@@ -5,9 +5,11 @@ import logo from '@/assets/Ug_space_final_boss2.svg'
 import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePlotsStore } from '@/stores/plots'
 gsap.registerPlugin(ScrollTrigger)
 
 const router = useRouter()
+const plots = usePlotsStore()
 const year = new Date().getFullYear()
 
 onMounted(() => {
@@ -40,7 +42,9 @@ onMounted(() => {
           <span>UG Space</span>
         </div>
         <p class="footer-tagline">
-          Uganda's trusted platform for discovering and purchasing verified plots.
+          Uganda's trusted platform for discovering and purchasing from over
+          <strong>{{ plots.plotCount !== null ? plots.plotCount.toLocaleString() : '…' }}</strong>
+          verified plots.
         </p>
         <AppdownloadComponent />
       </div>

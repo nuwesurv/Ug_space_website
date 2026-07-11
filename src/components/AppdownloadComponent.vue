@@ -1,14 +1,6 @@
 <script setup>
 import googlePlay from '@/assets/gplay.png'
 import applePlay from '@/assets/aplay.png'
-import { ref } from 'vue'
-
-const showAlert = ref(false)
-
-const triggerAlert = () => {
-  showAlert.value = true
-  setTimeout(() => { showAlert.value = false }, 3000)
-}
 </script>
 
 <template>
@@ -26,20 +18,18 @@ const triggerAlert = () => {
       </div>
     </a>
 
-    <button class="store-btn" @click="triggerAlert">
+    <a
+      href="https://apps.apple.com/ug/app/ug-space/id6780949664"
+      target="_blank"
+      rel="noopener"
+      class="store-btn"
+    >
       <img :src="applePlay" alt="App Store" class="store-icon" />
       <div class="store-text">
         <span class="store-sub">Download on the</span>
         <span class="store-name">App Store</span>
       </div>
-    </button>
-
-    <transition name="pop">
-      <div class="alert-toast" v-if="showAlert">
-        <span class="material-symbols-outlined alert-icon">info</span>
-        <p>Not yet on the App Store — try Google Play!</p>
-      </div>
-    </transition>
+    </a>
   </div>
 </template>
 
@@ -100,37 +90,4 @@ const triggerAlert = () => {
   font-weight: 700;
 }
 
-/* Alert toast */
-.alert-toast {
-  position: absolute;
-  top: calc(-100% - 1.75rem);
-  left: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 0.65rem 1rem;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-  white-space: nowrap;
-}
-.alert-icon {
-  font-size: 1rem;
-  color: var(--green);
-  flex-shrink: 0;
-}
-.alert-toast p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text-mid);
-}
-
-/* Pop animation */
-.pop-enter-active { animation: pop-in 0.25s ease; }
-.pop-leave-active { animation: pop-in 0.2s ease reverse; }
-@keyframes pop-in {
-  from { opacity: 0; transform: scale(0.9) translateY(6px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
 </style>

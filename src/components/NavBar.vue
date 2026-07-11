@@ -3,6 +3,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import logo from '@/assets/Ug_space_final_boss2.svg'
 import { useRouter, useRoute } from 'vue-router'
 import gsap from 'gsap'
+import { useAppStoreLink } from '@/composables/useAppStoreLink'
+
+const { appStoreLink } = useAppStoreLink()
 
 const router = useRouter()
 const route = useRoute()
@@ -64,12 +67,12 @@ const isActive = (path) => route.path === path
 
       <!-- CTA -->
       <a
-        href="https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp"
+        :href="appStoreLink"
         target="_blank"
         rel="noopener"
         class="nav-cta btn-primary"
       >
-        <span v-if="fontLoaded" class="material-symbols-outlined" style="font-size:1rem">download</span>
+        <span v-if="fontLoaded" class="material-symbols-outlined" style="font-size:1rem; color: #fff">download</span>
         Get the App
       </a>
 
@@ -91,7 +94,7 @@ const isActive = (path) => route.path === path
       <li @click="goTo('/contactus')">Contact</li>
     </ul>
     <a
-      href="https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp"
+      :href="appStoreLink"
       target="_blank"
       rel="noopener"
       class="btn-primary mobile-cta"

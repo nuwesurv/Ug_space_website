@@ -4,7 +4,10 @@ import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useAppStoreLink } from '@/composables/useAppStoreLink'
 gsap.registerPlugin(ScrollTrigger)
+
+const { appStoreLink } = useAppStoreLink()
 
 const copied = ref(false)
 const copyEmail = () => {
@@ -17,9 +20,9 @@ const channels = [
   {
     icon: 'smartphone',
     title: 'In the App',
-    body: 'The fastest way to reach us. Open UG Space, go to Contact, and send us a message directly.',
+    body: 'The fastest way to reach us. Open UG Space, go to Messages, and send us a message directly.',
     action: 'Download the App',
-    link: 'https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp',
+    link: appStoreLink,
   },
   {
     icon: 'mail',

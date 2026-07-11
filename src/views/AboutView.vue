@@ -4,7 +4,10 @@ import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePlotsStore } from '@/stores/plots'
 gsap.registerPlugin(ScrollTrigger)
+
+const plots = usePlotsStore()
 
 const steps = [
   {
@@ -35,6 +38,7 @@ const steps = [
 ]
 
 onMounted(() => {
+  plots.fetchPlotCount()
   // Hero entrance
   gsap.from('.about-hero-inner > *', {
     y: 40,
@@ -112,11 +116,11 @@ onUnmounted(() => ScrollTrigger.getAll().forEach(t => t.kill()))
         </div>
         <div class="who-stats">
           <div class="stat-card">
-            <span class="stat-number">100K+</span>
+            <span class="stat-number">{{ plots.plotCount !== null ? plots.plotCount.toLocaleString() : '—' }}</span>
             <span class="stat-label">Plots Listed</span>
           </div>
           <div class="stat-card">
-            <span class="stat-number">5+</span>
+            <span class="stat-number">5</span>
             <span class="stat-label">Regions</span>
           </div>
           <div class="stat-card">
