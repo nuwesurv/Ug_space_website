@@ -1,180 +1,289 @@
 <script setup>
-import FooterComponent from '@/components/FooterComponent.vue';
-import NavBar from '@/components/NavBar.vue';
+import NavBar from '@/components/NavBar.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
 
+const steps = [
+  {
+    icon: 'search',
+    title: 'Land Sourcing',
+    body: 'We actively search for land available for sale across different regions of Uganda.',
+  },
+  {
+    icon: 'verified',
+    title: 'Verification',
+    body: 'We carry out our own due diligence — verifying each land title and conducting on-ground checks to confirm ownership and occupancy.',
+  },
+  {
+    icon: 'home_work',
+    title: 'Preparation',
+    body: 'We work closely with sellers to ascertain services, developments, and utilities available on or nearby the land.',
+  },
+  {
+    icon: 'upload',
+    title: 'Presentation',
+    body: 'All verified plot details are compiled and published on UG Space, where you can access everything in one place.',
+  },
+  {
+    icon: 'directions_car',
+    title: 'Site Visit',
+    body: 'We link you with the seller and escort you for a guided visit — including an on-site survey and a full UG Space inspection report.',
+  },
+]
 </script>
 
 <template>
-  <div class="about-page">
+  <div>
     <NavBar />
-    <div class="page-grouper">
 
-      <!-- HERO -->
-      <section class="hero">
-        <h1>About UG Space</h1>
-        <p>
-          We are building a smarter, more transparent way to access secure land across Uganda.
-        </p>
-      </section>
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <span class="section-tag">About UG Space</span>
+        <h1>Building Uganda's Most Trusted Land Platform</h1>
+        <p>We are making land discovery, verification, and purchasing simple and transparent for every Ugandan.</p>
+      </div>
+    </section>
 
-      <!-- WHO WE ARE -->
-      <section class="section">
-        <h2>Who We Are</h2>
-        <p>
-          UG Space is a digital land platform focused on helping people find secure land and transact 
-          with confidence. We connect buyers and sellers across Uganda through the Ug space platform.
-        </p>
-      </section>
-
-      <!-- WHAT WE DO -->
-      <section class="section alt">
-        <h2>What We Do</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Land Sourcing</h3>
-            <p>
-              We actively search for land available for sale across different regions of Uganda.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Verification</h3>
-            <p>
-              We do our own due deligence to verify the validity of each Land title and on-ground checks to confirm ownership and occupancy.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Preparation</h3>
-            <p>
-              We work closely with our trusted land sellers to acertain services, developments and utilites available on or nearby the land.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Presentation</h3>
-            <p>
-              All verified plot details are compiled and uploaded onto the Ug space platform where you can access this information.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Site visit</h3>
-            <p>
-              We link you to land seller and escort you for sitevisit. We carryout an <strong style="color: var(--theme-color);">"at time of purchase"</strong> due deligence including but not limited to Land surveying and offer you a comprehensive Ug space inspection report.
-            </p>
-          </div>
-
-
+    <!-- Who we are -->
+    <section class="who-section">
+      <div class="who-inner">
+        <div class="who-text">
+          <span class="label-accent">Who We Are</span>
+          <h2>A Digital Platform Built Around Land.</h2>
+          <p>
+            UG Space is Uganda's dedicated land marketing platform. We connect buyers with verified sellers, provide accurate parcel data, and guide you through every step of your land purchase journey — from browsing to owning.
+          </p>
         </div>
-      </section>
+        <div class="who-stats">
+          <div class="stat-card">
+            <span class="stat-number">100K+</span>
+            <span class="stat-label">Plots Listed</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Regions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Title-Verified</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- VISION
-      <section class="section">
-        <h2>Our Vision</h2>
-        <p>
-          To become the leading digital space for land and property transactions in Uganda,
-          making access to land simple, secure, and accessible for everyone.
-        </p>
-      </section> -->
-    </div>
-    <FooterComponent/>
+    <!-- Process -->
+    <section class="process-section">
+      <div class="process-inner">
+        <div class="process-header">
+          <span class="label-accent">Our Process</span>
+          <h2>From Source to Sale — We're With You.</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card" v-for="(step, i) in steps" :key="i">
+            <div class="step-icon">
+              <span class="material-symbols-outlined">{{ step.icon }}</span>
+            </div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.body }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FooterComponent />
   </div>
 </template>
 
 <style scoped>
-/* HERO */
-.hero {
+/* ── Hero ── */
+.about-hero {
+  padding-top: 4.25rem;
+  background: var(--bg-light);
+}
+.about-hero-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 5rem;
   text-align: center;
-  padding: 5rem 1rem;
-  padding-top: 10rem;
-  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
-  /* background:  #fdfffb; */
-  /* border: 1px solid red; */
-}
-
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.8rem;
-  color: var(--theme-color);
-}
-
-.hero p {
-  max-width: 600px;
-  margin: auto;
-  font-size: 1.1rem;
-}
-
-/* SECTIONS */
-.section {
-  padding: 2.5rem 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.section h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: var(--theme-color);
-}
-
-.section p {
-  line-height: 1.6;
-}
-
-.alt {
-  /* background: #fafafa; */
-  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
-.card {
-  padding: 1.2rem;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+.section-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  background: var(--green-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
 }
 
-.card h3 {
-  margin-bottom: 0.5rem;
-  color: var(--theme-color);
+.about-hero-inner h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+.about-hero-inner p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-mid);
+  max-width: 560px;
 }
 
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: #ecffda;
+/* ── Who We Are ── */
+.who-section {
+  padding: 5rem 1.5rem;
+  background: #fff;
+}
+.who-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.cta h2 {
-  margin-bottom: 0.5rem;
+.label-accent {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
 }
 
-.cta button {
-  margin-top: 1rem;
-  padding: 0.7rem 1.5rem;
-  border: none;
-  background: var(--theme-color);
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+.who-text {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.who-text h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--text-dark);
+}
+.who-text p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-mid);
 }
 
-/* DESKTOP */
-@media (min-width: 800px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.who-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.stat-card {
+  flex: 1;
+  min-width: 140px;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+}
+.stat-number {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
 
-  .hero h1 {
-    font-size: 2.8rem;
-  }
+/* ── Process ── */
+.process-section {
+  padding: 5rem 1.5rem;
+  background: var(--bg-light);
+}
+.process-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.process-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.process-header h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--text-dark);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.step-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+}
+.step-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  background: var(--green-light);
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-icon .material-symbols-outlined {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+}
+.step-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
+}
+.step-card p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+
+@media (min-width: 768px) {
+  .who-inner { flex-direction: row; align-items: flex-start; gap: 4rem; }
+  .who-text { flex: 1; }
+  .who-stats { flex: 0 0 300px; flex-direction: column; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1100px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); }
 }
 </style>

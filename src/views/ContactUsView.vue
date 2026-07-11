@@ -1,117 +1,190 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import { ref } from 'vue'
 
-import image5 from '@/assets/Ug_space5.webp'
+const copied = ref(false)
+const copyEmail = () => {
+  navigator.clipboard.writeText('ugspaceestates@gmail.com')
+  copied.value = true
+  setTimeout(() => { copied.value = false }, 2000)
+}
+
+const channels = [
+  {
+    icon: 'smartphone',
+    title: 'In the App',
+    body: 'The fastest way to reach us. Open UG Space, go to Contact, and send us a message directly.',
+    action: 'Download the App',
+    link: 'https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp',
+  },
+  {
+    icon: 'mail',
+    title: 'Email Us',
+    body: 'For inquiries, partnerships, or support — email us and we\'ll get back to you within one business day.',
+    action: 'ugspaceestates@gmail.com',
+    link: 'mailto:ugspaceestates@gmail.com',
+  },
+  {
+    icon: 'schedule',
+    title: 'Business Hours',
+    body: 'Our team is available Monday to Saturday, 8:00 AM – 5:00 PM East Africa Time.',
+    action: null,
+    link: null,
+  },
+]
 </script>
 
 <template>
-  <NavBar />
+  <div>
+    <NavBar />
 
-  <body>
-    <!-- Section 4 of the Landing page-contact -->
-    <div class="page-contact2">
-      <div class="fake-navbar"></div>
-      <div class="page-contact-grouper">
-        <div class="image-div">
-          <img :src="image5" alt="" />
-        </div>
-        <h2>Reach out in App.</h2>
+    <!-- Hero -->
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <span class="section-tag">Contact Us</span>
+        <h1>Let's Talk Land.</h1>
+        <p>
+          Have a question about a plot, a listing, or a site visit? Reach out — we're here to help.
+        </p>
       </div>
-    </div>
+    </section>
 
+    <!-- Channels -->
+    <section class="channels-section">
+      <div class="channels-inner">
+        <div class="channel-card" v-for="(ch, i) in channels" :key="i">
+          <div class="channel-icon">
+            <span class="material-symbols-outlined">{{ ch.icon }}</span>
+          </div>
+          <h3>{{ ch.title }}</h3>
+          <p>{{ ch.body }}</p>
+          <a
+            v-if="ch.link"
+            :href="ch.link"
+            target="_blank"
+            rel="noopener"
+            class="channel-link"
+          >{{ ch.action }} →</a>
+        </div>
+      </div>
+    </section>
 
     <FooterComponent />
-  </body>
+  </div>
 </template>
 
 <style scoped>
-body {
-  width: 100%;
-  /* padding-top: 4rem; */
+/* Hero */
+.contact-hero {
+  padding-top: 4.25rem;
+  background: var(--bg-light);
 }
-
-
-.page-contact2 {
-  width: 100%;
-  height: 100dvh;
+.contact-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* border: 1px solid red; */
-  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
+  gap: 1rem;
 }
 
-.fake-navbar{
-  height: 5rem;
+.section-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  background: var(--green-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
 }
 
-.page-contact-grouper {
-  width: 100%;
+.contact-hero-inner h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--text-dark);
+}
+.contact-hero-inner p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+
+/* Channels */
+.channels-section {
+  padding: 5rem 1.5rem;
+  background: #fff;
+}
+.channels-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.channel-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  /* border: 2px solid blue; */
-  /* height: 60dvh; */
-  height: 90%;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.channel-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
 }
 
-
-h2 {
-  color: var(--theme-color);
-}
-
-.image-div {
+.channel-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  background: var(--green-light);
+  border-radius: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70%;
-  /* height: 80%; */
-  /* border: 2px solid rgb(255, 71, 47); */
+  margin-bottom: 0.25rem;
+}
+.channel-icon .material-symbols-outlined {
+  font-size: 1.3rem;
+  color: var(--green-dark);
 }
 
-.image-div img {
-  border-radius: 1rem;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
-  /* box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgba(0, 0, 0, 0.209); */
+.channel-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.channel-card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-mid);
 }
 
-
-
-
-@media (min-width: 800px) {
-  .page-contact-grouper {
-    display: flex;
-    /* flex-direction: row; */
-    height: 90dvh;
-    width: 60%;
-    gap: 2rem;
-  }
-
-  .image-div {
-    width: 40%;
-    aspect-ratio: 1/2;
-  }
-
-  .page-contact-contents {
-    width: 40%;
-    /* border: 1px solid red; */
-  }
-
-  h1{
-    font-size: 1.6rem;
-  }
-
-  p{
-    font-size: 1rem;
-  }
+.channel-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
 }
+.channel-link:hover { opacity: 0.75; }
 
-
+@media (min-width: 700px) {
+  .channels-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .channels-inner { grid-template-columns: repeat(3, 1fr); }
+}
 </style>

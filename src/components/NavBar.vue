@@ -1,214 +1,252 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import logo from '@/assets/Ug_space_final_boss2.svg'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
-
+const route = useRoute()
 const menuOn = ref(false)
+const scrolled = ref(false)
 const fontLoaded = ref(false)
 
+const handleScroll = () => { scrolled.value = window.scrollY > 20 }
 onMounted(() => {
-  document.fonts.load('1em "Material Symbols Outlined"').then(() => {
-    fontLoaded.value = true
-  })
+  window.addEventListener('scroll', handleScroll)
+  document.fonts.load('1em "Material Symbols Outlined"').then(() => { fontLoaded.value = true })
 })
+onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
-// navigation helper
 const goTo = (path) => {
   menuOn.value = false
   router.push(path)
 }
+const isActive = (path) => route.path === path
 </script>
 
 <template>
-  <div class="navbar">
-    <!-- LOGO -->
-    <div class="logo-div" @click="goTo('/')">
-      <div class="logo">
-        <img :src="logo" alt="logo" />
+  <nav class="navbar" :class="{ scrolled }">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <div class="logo-div" @click="goTo('/')">
+        <img :src="logo" alt="UG Space logo" class="logo-img" />
+        <span class="logo-name">UG Space</span>
       </div>
-      <h2>Ug space</h2>
-    </div>
 
-    <!-- DESKTOP MENU -->
-    <div class="menu-card1">
-      <div class="menu-grouper1">
-        <div class="text-div1" @click="goTo('/')">Home</div>
-        <!-- <div class="text-div1">Services</div> -->
-        <div class="text-div1" @click="goTo('/partners')">Our Partners</div>
-        <div class="text-div1" @click="goTo('/about')">About us </div>
-        <div class="text-div1" @click="goTo('/contactus')">Contact us</div>
-      </div>
-    </div>
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li @click="goTo('/')" :class="{ active: isActive('/') }">Home</li>
+        <li @click="goTo('/about')" :class="{ active: isActive('/about') }">About</li>
+        <li @click="goTo('/contactus')" :class="{ active: isActive('/contactus') }">Contact</li>
+      </ul>
 
-    <!-- HAMBURGER -->
-    <div class="menu-icon" v-if="fontLoaded" @click="menuOn = !menuOn">
-      <transition name="fade-scale" mode="out-in">
-        <span v-if="!menuOn" class="material-symbols-outlined">menu</span>
-        <span v-else class="material-symbols-outlined">close</span>
-      </transition>
-    </div>
-  </div>
+      <!-- CTA -->
+      <a
+        href="https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp"
+        target="_blank"
+        rel="noopener"
+        class="nav-cta btn-primary"
+      >
+        <span v-if="fontLoaded" class="material-symbols-outlined" style="font-size:1rem">download</span>
+        Get the App
+      </a>
 
-  <!-- MOBILE MENU -->
-  <div class="menu-card" :class="{ active: menuOn }">
-    <div class="menu-grouper">
-      <div class="text-div" @click="goTo('/')">Home</div>
-      <!-- <div class="text-div">Services</div> -->
-      <div class="text-div" @click="goTo('/about')">About us</div>
-      <div class="text-div" @click="goTo('/partners')">Our Partners</div>
-      <div class="text-div" @click="goTo('/contactus')">Contact us</div>
+      <!-- Hamburger -->
+      <button class="hamburger" @click="menuOn = !menuOn" aria-label="Toggle menu">
+        <transition name="fade-scale" mode="out-in">
+          <span v-if="fontLoaded && !menuOn" key="open" class="material-symbols-outlined">menu</span>
+          <span v-else-if="fontLoaded && menuOn" key="close" class="material-symbols-outlined">close</span>
+        </transition>
+      </button>
     </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" :class="{ open: menuOn }">
+    <ul>
+      <li @click="goTo('/')">Home</li>
+      <li @click="goTo('/about')">About</li>
+      <li @click="goTo('/contactus')">Contact</li>
+    </ul>
+    <a
+      href="https://play.google.com/store/apps/details?id=com.nuwesurvugspace.myapp"
+      target="_blank"
+      rel="noopener"
+      class="btn-primary mobile-cta"
+    >Get the App</a>
   </div>
 </template>
 
 <style scoped>
-/* NAVBAR */
 .navbar {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  z-index: 20;
-  background-color: white;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.navbar.scrolled {
+  border-color: var(--border);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
-/* LOGO */
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 4.25rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Logo */
 .logo-div {
   display: flex;
   align-items: center;
-  flex: 1;
-  margin-left: 0.5rem;
+  gap: 0.5rem;
   cursor: pointer;
-  height: 100%;
+  flex-shrink: 0;
+}
+.logo-img {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
+}
+.logo-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
 }
 
-.logo-div h2 {
-  font-size: 1.3rem;
-  color: rgb(35, 124, 7);
+/* Desktop nav links */
+.nav-links {
+  display: none;
+  list-style: none;
+  gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links li {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 0.4rem;
+  transition: color 0.18s ease, background 0.18s ease;
+  position: relative;
+}
+.nav-links li:hover {
+  color: var(--text-dark);
+  background: var(--bg-light);
+}
+.nav-links li.active {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+.nav-links li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 99px;
 }
 
-.logo {
-  height: 60%;
-  aspect-ratio: 1/1;
+/* Nav CTA */
+.nav-cta {
+  display: none;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.88rem;
+  flex-shrink: 0;
 }
 
-.logo img {
-  width: 100%;
-  height: 100%;
-}
-
-/* HAMBURGER */
-.menu-icon {
+/* Hamburger */
+.hamburger {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.8rem;
+  margin-left: auto;
+  background: none;
+  border: none;
   cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  transition: background 0.15s ease;
+}
+.hamburger:hover {
+  background: var(--bg-light);
+}
+.hamburger .material-symbols-outlined {
+  font-size: 1.6rem;
+  color: var(--text-dark);
 }
 
-span {
-  font-size: 1.8rem;
-  color: var(--theme-color);
-}
-
-/* MOBILE MENU */
-.menu-card {
+/* Mobile menu */
+.mobile-menu {
   position: fixed;
-  top: -100dvh;
+  top: 4.25rem;
+  left: 0;
   width: 100%;
-  height: 100dvh;
-  padding: 5.5rem 0.8rem;
-  background-color: #fdfffb;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.menu-card.active {
-  top: 0;
-}
-
-.text-div {
-  height: 2.8rem;
+  height: calc(100dvh - 4.25rem);
+  background: #fff;
+  z-index: 99;
+  padding: 1.5rem;
   display: flex;
-  align-items: center;
-  border-bottom: 0.5px solid var(--faint-text-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.text-div:active {
-  background-color: #ecffda;
-}
-
-/* DESKTOP MENU (hidden by default) */
-.menu-card1 {
-  display: none;
-}
-
-/* ========================= */
-/* DESKTOP STYLES */
-/* ========================= */
-@media (min-width: 800px) {
-
-  /* show desktop nav */
-  .menu-card1 {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-  }
-
-  .menu-grouper1 {
-    display: flex;
-    gap: 2rem;
-    margin-right: 1.5rem;
-  }
-
-  .text-div1 {
-    cursor: pointer;
-    position: relative;
-    font-size: 1rem;
-  }
-
-  /* nice hover underline */
-  .text-div1::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--theme-color);
-    transition: 0.3s;
-  }
-
-  .text-div1:hover::after {
-    width: 100%;
-  }
-
-  /* hide mobile elements */
-  .menu-icon {
-    display: none;
-  }
-
-  .menu-card {
-    display: none;
-  }
-}
-
-/* ANIMATION */
-.fade-scale-enter-active,
-.fade-scale-leave-active {
-  transition: all 0.2s ease;
-}
-
-.fade-scale-enter-from,
-.fade-scale-leave-to {
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translateY(-110%);
   opacity: 0;
-  transform: scale(0.8);
+  transition: transform 0.3s ease, opacity 0.25s ease;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.mobile-menu li {
+  padding: 1rem 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0.4rem;
+  transition: background 0.15s ease;
+}
+.mobile-menu li:hover {
+  background: var(--bg-light);
+}
+.mobile-cta {
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+/* Animations */
+.fade-scale-enter-active,
+.fade-scale-leave-active { transition: all 0.18s ease; }
+.fade-scale-enter-from,
+.fade-scale-leave-to { opacity: 0; transform: scale(0.8); }
+
+@media (min-width: 768px) {
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .hamburger { display: none; }
+  .mobile-menu { display: none; }
 }
 </style>

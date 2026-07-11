@@ -1,7 +1,8 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import LandingPage from '@/components/LandingPage.vue';
+import LandingPage from '@/components/LandingPage.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import AppdownloadComponent from '@/components/AppdownloadComponent.vue'
 
 import image5 from '@/assets/Ug_space5.webp'
 import image6 from '@/assets/Ug_space6.webp'
@@ -11,181 +12,257 @@ import video1 from '@/assets/Ug_space_filter.mp4'
 <template>
   <NavBar />
 
-  <body>
-    <!-- Section 1 of the Landing page -->
+  <main>
+    <!-- ── Hero ── -->
     <LandingPage />
 
-    <!-- Section 2 of the Landing page -->
-    <div class="page2">
-      <div class="page-grouper">
-        <div class="image-div">
-          <img :src="image6" alt="" />
+    <!-- ── Feature 1: Parcel Info ── -->
+    <section id="features" class="feature-section">
+      <div class="feature-inner reverse">
+        <div class="feature-media">
+          <img :src="image6" alt="Parcel information lookup" />
         </div>
-        <div class="page-contents">
-          <h1>Look Up Parcel Info at a click</h1>
+        <div class="feature-text">
+          <span class="section-label">Land Data</span>
+          <h2>Every Plot Detail, Instantly.</h2>
           <p>
-            Quickly reference Land Area, addresses, property boundaries, and more for 100K+ UG parcels.
+            Look up land area, boundaries, addresses, and ownership details for over
+            <strong>100,000 parcels</strong> across Uganda — all in one tap.
           </p>
-          <!-- <AppdownloadComponent /> -->
+          <ul class="feature-list">
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Verified land titles
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Accurate boundary data
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Plot size &amp; area measurements
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Section 3 of the Landing page -->
-    <div class="page">
-      <div class="page-grouper">
-        <!-- <div class="image-div">
-          <img :src="image8" alt="" />
-        </div> -->
-        <div class="image-div">
-          <video :src="video1" loop controls playsinline autoplay></video>
+    <!-- ── Feature 2: Smart Filter ── -->
+    <section class="feature-section alt">
+      <div class="feature-inner">
+        <div class="feature-media">
+          <video :src="video1" loop autoplay muted playsinline></video>
         </div>
-        <div class="page-contents">
-          <h1>Find the Right Land</h1>
+        <div class="feature-text">
+          <span class="section-label">Smart Search</span>
+          <h2>Filter. Compare. Decide.</h2>
           <p>
-            <!-- Quickly identify affordable land using our fast realtime filter search for 100K+ plots of Land. -->
-            Search thousands of verified plots in seconds. Compare prices, filter by your needs, and confidently choose
-            land that <strong style="color: var(--theme-color);">fits your budget</strong>
+            Search thousands of verified plots in seconds. Filter by region, price, and
+            size — then compare side-by-side to find land that fits your budget.
           </p>
-          <!-- <AppdownloadComponent /> -->
+          <ul class="feature-list">
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Real-time search results
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Price &amp; size filters
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Multiple regions covered
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Section 4 of the Landing page -->
-    <div class="page2">
-      <div class="page-grouper">
-        <div class="image-div">
-          <img :src="image5" alt="" />
+    <!-- ── Feature 3: Site Visit ── -->
+    <section class="feature-section">
+      <div class="feature-inner reverse">
+        <div class="feature-media">
+          <img :src="image5" alt="Site visit booking" />
         </div>
-        <div class="page-contents">
-          <h1>Book Smarter. Visit Faster.</h1>
+        <div class="feature-text">
+          <span class="section-label">Site Visits</span>
+          <h2>Book a Visit. We Handle the Rest.</h2>
           <p>
-            Book a site visit in minutes and let our team handle the rest. We organize, confirm, and guide you every
-            step of the way so you can focus on making the <strong style="color: var(--theme-color);">right land
-              purchase decision</strong>.
+            Schedule a guided site visit in minutes. Our team confirms, organises, and escorts you — so you can focus on making the right decision.
           </p>
-          <!-- <AppdownloadComponent /> -->
+          <ul class="feature-list">
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Same-day booking available
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              Guided on-site inspection
+            </li>
+            <li>
+              <span class="material-symbols-outlined icon-green">check_circle</span>
+              UG Space inspection report
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
 
+    <!-- ── App Download ── -->
+    <section class="app-section">
+      <div class="app-inner">
+        <span class="section-label light">Mobile App</span>
+        <h2>Take UG Space Everywhere.</h2>
+        <p>Browse land, get alerts on new plots, and book visits — all from your phone.</p>
+        <AppdownloadComponent />
+      </div>
+    </section>
+  </main>
 
-  </body>
   <FooterComponent />
 </template>
 
 <style scoped>
-body {
-  width: 100%;
+main { width: 100%; }
+
+/* ── Feature sections ── */
+.feature-section {
+  padding: 5rem 1.5rem;
+  background: #fff;
+}
+.feature-section.alt {
+  background: var(--bg-light);
 }
 
-
-.page,
-.page2 {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 0rem;
-  background-color: #fdfffb;
-}
-
-.page2 {
-  background-image: linear-gradient(rgba(235, 247, 235, 1), rgba(235, 247, 235, 1));
-}
-
-.page-grouper {
-  width: 85%;
+.feature-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  /* border: 2px solid blue; */
-  height: 100dvh;
+  gap: 2.5rem;
 }
 
-.page-contents {
+/* Media */
+.feature-media {
   width: 100%;
-  flex: 1;
+  max-width: 300px;
+  aspect-ratio: 3 / 4;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  flex-shrink: 0;
+}
+.feature-media:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+}
+.feature-media img,
+.feature-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text */
+.feature-text {
+  max-width: 480px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-  gap: 1.5rem;
-  /* border: 2px solid greenyellow; */
+  gap: 1rem;
 }
 
-h1 {
+.section-label {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.section-label.light {
+  color: rgba(255,255,255,0.7);
+}
+
+.feature-text h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--text-dark);
   line-height: 1.2;
-  color: var(--theme-color);
 }
 
-p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--main-text-color);
+.feature-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-mid);
 }
 
-.image-div {
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+.feature-list li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* flex: 1; */
-  width: 85%;
-  /* height: 70%; */
-  /* border: 2px solid rgb(255, 71, 47); */
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  font-family: 'DM Sans', sans-serif;
+}
+.icon-green {
+  font-size: 1.1rem;
+  color: var(--green);
+  flex-shrink: 0;
 }
 
-.image-div img {
-  border-radius: 1rem;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
-  /* box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgba(0, 0, 0, 0.209); */
+/* ── App section ── */
+.app-section {
+  background: #0D1F0A;
+  padding: 5rem 1.5rem;
+}
+.app-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.app-inner h2 {
+  color: #fff;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+.app-inner p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.app-inner :deep(.button-grouper) {
+  margin-top: 0.75rem;
 }
 
-video {
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.168);
-}
-
+/* ── Desktop layout ── */
 @media (min-width: 800px) {
-  .page,
-  .page2 {
-    height: 80dvh;
-  }
-
-  .page-grouper {
-    display: flex;
+  .feature-inner {
     flex-direction: row;
-    height: 80dvh;
-    width: 60%;
-    gap: 2rem;
+    gap: 4rem;
+    align-items: center;
   }
-
-  .image-div {
-    width: 40%;
-    aspect-ratio: 1/2;
+  .feature-inner.reverse {
+    flex-direction: row-reverse;
   }
-
-  .page-contents {
-    width: 40%;
-    /* border: 1px solid red; */
+  .feature-media {
+    flex: 0 0 300px;
+    max-width: 300px;
   }
-
-  h1{
-    font-size: 1.6rem;
+  .feature-text {
+    flex: 1;
   }
-
-  p{
-    font-size: 1rem;
-  }
-
 }
 </style>
